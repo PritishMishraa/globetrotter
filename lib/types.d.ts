@@ -5,7 +5,7 @@ export type Destination = {
   clues: string[]
   fun_fact: string[]
   trivia: string[]
-} 
+}
 
 export type GameScore = {
   correct: number
@@ -21,17 +21,16 @@ export type GameState = {
   showConfetti: boolean
   score: GameScore
   username: string
-} 
+}
 
 export type GameGetResponse = {
   currentDestination: {
-      id: number;
-      clues: string[];
+    clues: string[];
   };
   options: {
-      id: number;
-      city: string;
-      country: string;
+    id: number;
+    city: string;
+    country: string;
   }[];
 }
 

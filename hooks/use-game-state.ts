@@ -23,7 +23,7 @@ export function useGameState() {
                 isCorrect: null,
                 showConfetti: false,
                 currentDestination: {
-                    id: data.currentDestination.id,
+                    id: -1,
                     city: '',
                     country: '',
                     clues: data.currentDestination.clues,
@@ -45,16 +45,13 @@ export function useGameState() {
     }
 
     const handleAnswerSelect = async (id: number) => {
-        if (gameState.selectedAnswer !== null || !gameState.currentDestination) return
+        if (gameState.selectedAnswer !== null) return
 
         try {
             const response = await fetch('/api/game', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    answerId: id,
-                    correctId: gameState.currentDestination.id
-                }),
+                body: JSON.stringify({ answerId: id }),
             })
             const data: GamePostResponse = await response.json()
 
