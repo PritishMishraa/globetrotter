@@ -1,3 +1,6 @@
+import { GlobetrotterGame } from "@/components/game";
+import { Suspense } from 'react';
+
 export async function generateMetadata({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const username = searchParams.username || 'Anonymous';
   const score = searchParams.score;
@@ -38,7 +41,10 @@ export async function generateMetadata({ searchParams }: { searchParams: { [key:
   };
 }
 
-import { GlobetrotterGame } from './game';
 export default function Page() {
-  return <GlobetrotterGame />;
+  return (
+    <Suspense>
+      <GlobetrotterGame />
+    </Suspense>
+  );
 } 

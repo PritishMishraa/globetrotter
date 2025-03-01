@@ -9,6 +9,8 @@ import { ScoreTracker } from "@/components/score-tracker"
 import { Profile } from "@/components/profile"
 import { WelcomeDialog } from "@/components/welcome-dialog"
 import { useGameState } from "@/hooks/use-game-state"
+import { Suspense } from "react"
+import { LoadingSkeleton } from "@/components/game-area/loading-skeleton"
 
 export function GlobetrotterGame() {
   const { width, height } = useWindowSize()
@@ -25,6 +27,7 @@ export function GlobetrotterGame() {
   }
 
   return (
+    <Suspense fallback={<LoadingSkeleton />}>      
     <main className="min-h-screen bg-gradient-to-b from-sky-100 to-blue-50 dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <Header />
@@ -54,5 +57,6 @@ export function GlobetrotterGame() {
         )}
       </div>
     </main>
+    </Suspense>
   )
 } 

@@ -17,6 +17,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Globetrotter Challenge",
   description: "Test your geography knowledge and become the ultimate Globetrotter!",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   openGraph: {
     title: "Globetrotter Challenge",
     description: "Test your geography knowledge and become the ultimate Globetrotter!",
