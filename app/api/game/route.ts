@@ -70,6 +70,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
         isCorrect: answerId === correctId,
-        funFact: destination.fun_fact[0]
+        destination: destination
     })
 } 

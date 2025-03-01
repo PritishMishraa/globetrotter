@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import type { GameState } from "../lib/types"
+import type { GameState, GameGetResponse, GamePostResponse } from "../lib/types"
 
 export function useGameState() {
     const [gameState, setGameState] = useState<GameState>({
@@ -15,15 +15,29 @@ export function useGameState() {
     const startNewRound = async () => {
         try {
             const response = await fetch('/api/game')
-            const data = await response.json()
+            const data: GameGetResponse = await response.json()
 
             setGameState(prev => ({
                 ...prev,
                 selectedAnswer: null,
                 isCorrect: null,
                 showConfetti: false,
-                currentDestination: data.currentDestination,
-                options: data.options
+                currentDestination: {
+                    id: data.currentDestination.id,
+                    city: '',
+                    country: '',
+                    clues: data.currentDestination.clues,
+                    fun_fact: [],
+                    trivia: []
+                },
+                options: data.options.map(opt => ({
+                    id: opt.id,
+                    city: opt.city,
+                    country: opt.country,
+                    clues: [],
+                    fun_fact: [],
+                    trivia: []
+                }))
             }))
         } catch (error) {
             console.error('Failed to fetch new round:', error)
@@ -42,17 +56,14 @@ export function useGameState() {
                     correctId: gameState.currentDestination.id
                 }),
             })
-            const data = await response.json()
+            const data: GamePostResponse = await response.json()
 
             setGameState(prev => ({
                 ...prev,
                 selectedAnswer: id,
                 isCorrect: data.isCorrect,
                 showConfetti: data.isCorrect,
-                currentDestination: {
-                    ...prev.currentDestination!,
-                    fun_fact: [data.funFact]
-                },
+                currentDestination: data.destination,
                 score: {
                     ...prev.score,
                     correct: data.isCorrect ? prev.score.correct + 1 : prev.score.correct,

@@ -22,3 +22,20 @@ export type GameState = {
   score: GameScore
   username: string
 } 
+
+export type GameGetResponse = {
+  currentDestination: {
+      id: number;
+      clues: string[];
+  };
+  options: {
+      id: number;
+      city: string;
+      country: string;
+  }[];
+}
+
+export type GamePostResponse = {
+  isCorrect: boolean
+  destination: Destination
+}
