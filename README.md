@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Globetrotter
+
+Globetrotter is an interactive geography quiz game that challenges players to identify cities and countries around the world based on clues. Test your knowledge, learn interesting facts, and challenge your friends to beat your score!
+
+![Globetrotter Game](og.png)
+
+## Features
+
+- **Geography Quiz Game**: Guess destinations based on clues and hints
+- **Score Tracking**: Keep track of your correct and incorrect answers
+- **Challenge Mode**: Challenge friends to beat your score
+- **Fun Facts**: Learn interesting trivia about each destination
+- **Confetti Celebration**: Visual celebration when you get an answer right
+- **Responsive Design**: Play on any device with a beautiful UI
+- **Dark Mode Support**: Comfortable gameplay day or night
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) with shadcn/ui
+- **State Management**: React Hooks
+- **Animations**: React Confetti
+- **Deployment**: Vercel (recommended)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.x or later
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PritishMishraa/globetrotter.git
+   cd globetrotter
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   # or
+   pnpm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## How to Play
+
+1. When you start the game, you'll be presented with clues about a destination.
+2. Choose from the multiple-choice options to guess the correct destination.
+3. After selecting an answer, you'll receive immediate feedback and learn a fun fact about the destination.
+4. Continue playing to improve your score and knowledge.
+5. Challenge friends by sharing your score with them.
+
+## Customization
+
+The game data is stored in `data.json`. You can add more destinations by following the existing format:
+
+```json
+{
+  "id": number,
+  "city": "City Name",
+  "country": "Country Name",
+  "clues": ["Clue 1", "Clue 2"],
+  "fun_fact": ["Fun fact about the destination"],
+  "trivia": ["Additional trivia"]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The easiest way to deploy Globetrotter is using [Vercel](https://vercel.com):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push your code to a GitHub repository.
+2. Import the project into Vercel.
+3. Vercel will detect Next.js and set up the build configuration automatically.
+4. Your application will be deployed and available at a Vercel URL.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Deploy on Vercel
+## Acknowledgements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Geography data compiled using ChatGPT
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Next.js team for the amazing framework
+- Cursor for writing ALL the code
