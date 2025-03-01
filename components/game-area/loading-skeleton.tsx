@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Share2, MapPin } from "lucide-react"
+import { MapPin } from "lucide-react"
 
 export function LoadingSkeleton() {
   return (
