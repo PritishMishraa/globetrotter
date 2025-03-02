@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     const isCorrect = answerId === parseInt(correctId)
 
     // Clear the cookie after the answer is checked
-    cookies().delete('correct_destination_id')
+    cookies().delete(COOKIE_NAME)
 
     return NextResponse.json({
         isCorrect,
